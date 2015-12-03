@@ -15,7 +15,6 @@
     <link href="css/mystyles.css" rel="stylesheet">
     <link href="css/bootstrap-social.css" rel="stylesheet">   
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
 <script type="text/javascript">
 $(function () {
@@ -107,7 +106,7 @@ $(function () {
                                                     <p>HighCharts chart, data is emdeded into the html page</p>
                     </div>
                     <div class="tab-pane" id ="csv">
-                            <div id="containercsv" style="width:600px; height: 400px; margin: 0 auto">d</div>
+                            <div id="containercsv" style="width:600px; height: 400px; margin: 0 auto"></div>
                     </div>
                     <div class="tab-pane" id ="sqlite">
                     Sqlite with some computation on the server side
@@ -121,16 +120,17 @@ $(function () {
                     </div>
                 </div>
         </div>
+        <script src="http://code.jquery.com/jquery-1.9.1.js" type="text/javascript"></script>
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
 
-    <script src="http://code.jquery.com/jquery-1.9.1.js" type="text/javascript"></script>
     <script src="http://code.highcharts.com/highcharts.js" type="text/javascript"></script>
     <script type="text/javascript" src="http://code.highcharts.com/modules/data.js"></script>
-    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+
 
 <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
     <script type="text/javascript">
         $(function() {
-            $('#container').highcharts({
+            $('#containeremb').highcharts({
                 title: {
                     text: 'Monthly Average Temperature',
                     x: -20 //center
@@ -203,6 +203,37 @@ $(function () {
 			
 		});
         </script>
+		<script type="text/javascript">
+	$(document).ready(function() {
+
+	$.getJSON('http://www.highcharts.com/samples/data/jsonp.php?filename=aapl-c.json&callback=?', function(data) {
+		// Create the chart
+		window.chart = new Highcharts.StockChart({
+			chart : {
+				renderTo : 'container'
+			},
+
+			rangeSelector : {
+				selected : 1
+			},
+
+			title : {
+				text : 'AAPL Stock Price'
+			},
+			
+			series : [{
+				name : 'AAPL',
+				data : data,
+				tooltip: {
+					valueDecimals: 2
+				}
+			}]
+		});
+	});
+
+});
+
+		</script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>   
     </body>
