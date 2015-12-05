@@ -62,6 +62,7 @@ app.controller('formCtrl', function($scope) {
         {
         $scope.errormsg = ""
         $scope.$apply();
+        }
 		window.chart = new Highcharts.StockChart({
 			chart : {
 				renderTo : 'containerjson'
@@ -83,7 +84,6 @@ app.controller('formCtrl', function($scope) {
 				}
 			}]
 		});
-    }
 	});
         
     };
