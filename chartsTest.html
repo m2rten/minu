@@ -44,7 +44,7 @@ $(function() {
 		</script>
 	</head>
 	<body>
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+       <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -60,16 +60,14 @@ $(function() {
                          aria-hidden="true"></span> Multiple</a></li>
                     <li class="active"><a href="chartsTest.html"><span aria-hidden="true"></span>
                          Stock</a></li>
+                    <li ><a href="input.html"><span aria-hidden="true"></span>
+                         Input</a></li>
                     </ul>
                 </div>    
             </div>
         </nav> 
 <script src="http://code.highcharts.com/stock/highstock.js"></script>
 <script src="http://code.highcharts.com/stock/modules/exporting.js"></script>
-<div> 
-    <input type="text" ng-model="comment.filter">
-    {{comment.filter}}
-</div>
 
 <div id="container" style="height: 500px; min-width: 500px"></div>
 	</body>
