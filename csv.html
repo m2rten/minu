@@ -14,8 +14,7 @@
 		
 		<!-- 2. Add the JavaScript to initialize the chart on document ready -->
 		<script type="text/javascript">
-		$(document).ready(function() {
-			
+		$(document).ready(function() {	
 
 			
 			
@@ -29,22 +28,39 @@
 				Janet,3,16,13,15
 				
 			 */ 
-			$.get('data.csv', function(csv) {
+			$.getJSON('http://localhost:3000/headingcount', function(data) {
+ 
+            console.log(data);
+
+            // Populate series
+            var processed_json = new Array();
+            for (i = 0; i < data.length; i++) {
+                processed_json.push([new Date('2011-04-11'), parseInt(data[i].count)]);
+            }
+                console.log(processed_json)
 			    $('#container').highcharts({
 			        chart: {
 			        	type: 'column'
 			        },
-			        data: {
-			            csv: csv
-			        },
+                   
+			chart : {
+				renderTo : 'container'
+			},
+xAxis: {
+    type: 'date',
+            labels: {
+            format: '{value:%Y/%m/%d}',
+            rotation: 45,
+            align: 'left'
+        }
+},
 			        title: {
-						text: 'Fruit Consumption'
+						text: 'data fetches per day2'
 					},
-					yAxis: {
-						title: {
-							text: 'Units'
-						}
-					}
+                        series : [{
+                            name : 'AAPL',
+                            data : processed_json
+                        }]
 			    });
 			});
 			

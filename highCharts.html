@@ -83,10 +83,10 @@ $(function () {
         <div class="container">
                <ul class="nav nav-tabs" role="tablist">
                     <li role="presentation" >
-                    <a href="#embedded" class="active" aria-controls="embedded"
+                    <a href="#embedded"  aria-controls="embedded"
                      role="tab" data-toggle="tab">embedded</a></li>
                    
-                    <li role="presentation" ><a href="#csv"
+                    <li role="presentation" class="active" ><a href="#csv"
                      aria-controls="danny" role="tab"
                      data-toggle="tab">csv</a></li>
                    
@@ -104,12 +104,12 @@ $(function () {
                    
                 </ul>
                 <div class="tab-content">
-                     <div  class="tab-pane fade in active" id="embedded">
+                     <div  class="tab-pane " id="embedded">
                             <div id="containerembedded" style="width:600px; height: 400px; margin: 0 auto"></div>
                                                     <p>HighCharts chart, data is emdeded into the html page</p>
                     </div>
-                    <div class="tab-pane" id ="csv">
-                            <div id="containercsv" style="width:600px; height: 400px; margin: 0 auto"></div>
+                    <div class="tab-pane fade in active" id ="csv">
+                            <div id="containercsv" style="height: 400px; min-width: 1000px">CSV</div>
                     </div>
                     <div class="tab-pane" id ="sqlite">
                     Sqlite with some computation on the server side
@@ -126,7 +126,6 @@ $(function () {
         <script src="http://code.jquery.com/jquery-1.9.1.js" type="text/javascript"></script>
     <script src="https://code.highcharts.com/stock/highstock.js"></script>
 
-    <script src="http://code.highcharts.com/highcharts.js" type="text/javascript"></script>
     <script type="text/javascript" src="http://code.highcharts.com/modules/data.js"></script>
 
 
