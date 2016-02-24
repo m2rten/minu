@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <script src="http://code.angularjs.org/1.2.8/angular.js"></script>
+    <script src="https://rawgithub.com/highslide-software/highcharts.com/master/js/adapters/standalone-framework.src.js"></script>
+    <script src="http://code.highcharts.com/highcharts.src.js"></script>
+    <script src="script.js"></script>
+  </head>
+
+  <body ng-app="myApp" ng-controller="myCtrl">
+    <h1>Hello HighCharts</h1>
+    <div highcharts="chartOptions" style="width: 400px; height: 300px"  />
+  </body>
+
+</html>
+<script>
+var app=  angular.module("myApp", []);
+app.controller("myCtrl", function($scope) {
+   $scope.chartOptions =  {
+    chart: { type: 'bar' },
+    title: { text: 'Fruit Consumption' },
+    xAxis: { categories: ['Apples', 'Bananas', 'Oranges'] },
+    yAxis: { title: { text: 'Fruit eaten' } },
+    series: [
+      { name: 'Jane', data: [1, 0, 4] }, 
+      { name: 'John', data: [5, 7, 3] }
+    ]
+  }
+   console.log("controlleris")
+   console.log($scope.chartOptions)
+   ;
+});
+app.directive("highcharts", function() {
+  return {
+    link: function(scope, el, attrs) {
+    console.log("direktiivis")
+    console.log(attrs.highcharts)
+    
+      var options = scope.$eval(attrs.highcharts);
+        console.log(options)
+      options.chart.renderTo = el[0];
+      new Highcharts.Chart(options);
+    }
+  };
+});
+</script>

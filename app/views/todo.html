@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+ <div id="tabs" ng-controller="TabsCtrl">
+        <ul>
+            <li style = "float: left;
+    border: 1px solid #000;
+    border-bottom-width: 0;
+    margin: 3px 3px 0px 3px;
+    padding: 5px 5px 0px 5px;
+    background-color: #CCC;
+    color: #696969 "
+                ng-repeat="tab in tabs" 
+                ng-class="{active:isActiveTab(tab.url)}" 
+                ng-click="onClickTab(tab)">{{tab.title}}</li>
+        </ul>
+        <div id="mainView">
+            <div ng-include="currentTab"></div>
+        </div>
+    </div>
+    <script type="text/ng-template" id="one.tpl.html"  >
+  		<div id="viewThree" padding = 10>
+
+        <ol> 
+        <li> Dependency and 3rd party library fetching: How is that done ? What tools used ?</li>
+        <li> Setup of a good folder and file structure</li>
+        <li> Understanding the json db part</li>
+        <li> Understanding how the webserver is eaxclty running</li>    
+        <li>Automatic deployment to test and live</li>
+        <li>Add unit tests and create a test report</li>
+        <li>Commit history from git</li>
+        </ol>
+            </div>
+	</script>
+	
+	<script type="text/ng-template" id="two.tpl.html">
+      
+		<div id="viewTwo" class = "container">
+        <ol>
+            <li>Embed into my appliction</li>
+            <ol>
+                <li>add a menu item</li>
+                <li>add tabs</li>
+            </ol>
+            <li>Tab for counts of fetches</li>
+            <ol>
+                <li> User can choose period</li>
+            </ol>
+                        <li>Tab for most popular words</li>
+            <ol>
+                <li> User can choose period</li>
+                <li> User can choose the number of words he wants to see</li>
+            </ol>
+                <li>Tab for sentiments of days</li>
+            <ol>
+                <li> User can choose period</li>
+                <li> The sentiment score per day is displayed/li>
+            </ol>
+            <li>Display a test  report</li>
+            <li>Display commit history from git</li>
+        </ol>
+		</div>
+	</script>
+	
+	<script type="text/ng-template" id="three.tpl.html">
+		<h3>Statistical Inference</h3>
+	</script>
+	<script type="text/ng-template" id="four.tpl.html">
+ <h3>Regression models</h3>
+		</div>
+	</script>
+    <script type="text/ng-template" id="five.tpl.html">
+        <h3>Analyzing and benchmarking data anlytic tools: Desktop, Web, Cloud </h3>
+            <ol>
+                <li>R</li>
+                <li>Tableu</li>
+                <li>Excel</li>
+                <li>Other: Hadoop in cloud ?</li>
+            </ol>  
+		</div>
+	</script>
+	<script type="text/ng-template" id="six.tpl.html">
+      <h3>Python</h3>
+        <ol>
+            <li> Add more Unit tests</li>
+            <li> Automatically create documentation</li>
+            <li> Logging: Application log after each run</li>
+            <li> Metrics: report how long each fecth took and what and how much data was obtained: Json format</l>
+        </ol>
+	</script>
+	<script type="text/ng-template" id="seven.tpl.html">
+       <h3>Add Login and user sessions to my application</h3>
+	</script>
+    </body>
+
+</html>
