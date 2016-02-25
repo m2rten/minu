@@ -98,7 +98,7 @@ angular.module('confusionApp')
             url: 'five.tpl.html'
     },    
                    {
-            title: 'Benchmarking',
+            title: 'Python',
             url: 'six.tpl.html'
     },
           {
@@ -258,5 +258,23 @@ xAxis: {
     }
   };
 })
-;
+
+.controller('CommitsCtrl', ['$scope', 'commitFactory', function ($scope, commitFactory) {
+    $scope.commits ={};
+    $scope.commits = commitFactory.getCommits().then(
+    function(response)
+       {
+           $scope.commits =  response.data;
+           console.log(response.data[0]);
+           console.log("success");
+      },
+    function(response)
+      {
+          console.log("fail");
+      }
+      
+      );
+         
+            }
+          ])
 

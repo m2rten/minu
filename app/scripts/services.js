@@ -13,10 +13,18 @@ angular.module('confusionApp')
                                     };   
                         
         }])
+
+        .service('commitFactory', ['$http', 'baseURL', function($http,baseURL) {   
+  
+            this.getCommits = function ()
+        { return $http.get(baseURL + 'commit')}
+              
+        }])
+
       .service('feedbackFactory', ['$resource', 'baseURL', function($resource,baseURL) {  
           
                     this.setFeedback = function(){
-                                      return  $resource(baseURL+"feedback/:id",null,  {'save':{method:'POST' }});
+                                      return  $resource(baseURL+"feedback/:id",null,  {'save':{method:'GET' }});
                                     };  
                         
         }])

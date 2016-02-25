@@ -1,0 +1,22 @@
+<html>
+    <body>   
+<style>
+table, th, td {
+    
+    border-collapse: collapse;
+}
+td {
+    padding: 5px;
+}
+</style>
+<div class="row row-content" ng-controller="CommitsCtrl"> 
+            <div class="col-xs-12">
+            <table>
+                   <tr ng-repeat="commit in commits">                    
+                       <td>{{commit.hash}}</td><td>{{commit.name}}</td><td>{{commit.time}}</td><td>{{commit.message}}</td>      
+                </tr>
+            </table>
+            </div>
+       </div>
+</body>
+</html>  

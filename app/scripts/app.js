@@ -19,35 +19,41 @@ angular.module('confusionApp', ['ui.router','ngResource',])
                     }
                 },
             })
-                    .state('todo', {
+                    .state('app.todo', {
                 url:'/todo.html',
                 views: {
-                    'header': {
-                        templateUrl : 'views/header.html',
-                    },
-                    'content': {
+                    'content@': {
                         templateUrl : 'views/todo.html',
                         controller: 'TabsCtrl'
-                    },
-                    'footer': {
-                        templateUrl : 'views/footer.html',
                     }
                 },
             })
-                        .state('postimees', {
+                        .state('app.postimees', {
                 url:'/fetchcounts.html',
                 views: {
-                    'header': {
-                        templateUrl : 'views/header.html',
-                    },
-                    'content': {
+                    'content@': {
                         templateUrl : 'views/fetchcounts.html'
-                    },
-                    'footer': {
-                        templateUrl : 'views/footer.html',
                     }
                 },
             })
+                        .state('app.katsetused', {
+                url:'/katsetused.html',
+                views: {
+                    'content@': {
+                        templateUrl : 'views/katsetused.html'
+                    }
+                }
+                        })
+                        .state('app.web', {
+                url:'/web.html',
+                views: {
+                    'content@': {
+                        templateUrl : 'views/web.html',
+                        controller: 'CommitsCtrl'
+                    }
+                },
+            })
+         
     
         $urlRouterProvider.otherwise('/');
     });
